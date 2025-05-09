@@ -3,9 +3,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Press+Start+2P&display=swap');
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: 49 70% 96%;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -14,16 +16,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 221.2 83.2% 53.3%;
+    --primary: 266 70% 74%;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    --secondary: 36 100% 90%;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 210 40% 96.1%;
+    --accent: 24 94% 82%;
     --accent-foreground: 222.2 47.4% 11.2%;
 
     --destructive: 0 84.2% 60.2%;
@@ -31,34 +33,36 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221.2 83.2% 53.3%;
+    --ring: 266 70% 74%;
 
-    --radius: 0.5rem;
+    --radius: 0;
   }
 
   body {
     @apply bg-background text-foreground antialiased;
     font-feature-settings: "rlig" 1, "calt" 1;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%239C92AC' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+    background-attachment: fixed;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-bold tracking-tight text-gray-900;
+    @apply font-retro tracking-wide text-retro-darkPurple;
   }
 
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl mb-6;
+    @apply text-3xl md:text-4xl lg:text-5xl mb-6;
   }
 
   h2 {
-    @apply text-3xl md:text-4xl mb-5;
+    @apply text-2xl md:text-3xl mb-5;
   }
 
   h3 {
-    @apply text-2xl md:text-3xl mb-4;
+    @apply text-xl md:text-2xl mb-4;
   }
 
   h4 {
-    @apply text-xl md:text-2xl mb-3;
+    @apply text-lg md:text-xl mb-3;
   }
 
   p {
@@ -66,7 +70,10 @@
   }
 
   a {
-    @apply text-primary hover:text-primary/80 transition-colors;
+    @apply text-retro-darkPurple hover:text-retro-purple transition-colors;
+    text-decoration-thickness: 2px;
+    text-decoration-style: wavy;
+    text-underline-offset: 4px;
   }
 
   .container {
@@ -76,15 +83,27 @@
 
 @layer components {
   .btn {
-    @apply px-4 py-2 rounded-md font-medium transition-colors;
+    @apply px-4 py-2 font-retro transition-all border-2 border-black shadow-retro;
+  }
+
+  .btn:active {
+    @apply shadow-none translate-x-[3px] translate-y-[3px];
   }
 
   .btn-primary {
-    @apply bg-primary text-white hover:bg-primary/90;
+    @apply bg-retro-purple text-white border-black hover:bg-retro-darkPurple;
   }
 
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80;
+    @apply bg-retro-cream text-black hover:bg-retro-orange;
+  }
+
+  .retro-card {
+    @apply bg-white border-2 border-black p-4 shadow-retro mb-6;
+  }
+
+  .retro-input {
+    @apply bg-retro-cream border-2 border-black shadow-retro-inset px-4 py-2;
   }
 
   .prose {
@@ -92,7 +111,7 @@
   }
 
   .prose img {
-    @apply rounded-lg shadow-md my-8 mx-auto;
+    @apply border-2 border-black shadow-retro my-8 mx-auto;
   }
   
   .blog-content {
@@ -100,11 +119,26 @@
   }
 
   .blog-content h2 {
-    @apply mt-12;
+    @apply mt-12 after:content-['_💾'] after:text-retro-purple;
   }
 
   .blog-content h3 {
-    @apply mt-8;
+    @apply mt-8 after:content-['_📼'] after:text-retro-purple;
+  }
+  
+  .pixel-text {
+    @apply font-display text-sm md:text-base;
+    image-rendering: pixelated;
+  }
+
+  .retro-gradient {
+    @apply bg-gradient-to-r from-retro-purple to-retro-darkPurple;
+  }
+
+  .retro-grid {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
   }
 }
 
@@ -115,5 +149,43 @@
   
   .animate-fade:hover {
     @apply opacity-80;
+  }
+
+  .retro-outline {
+    text-shadow: 
+      1px 1px 0 #000,
+      -1px -1px 0 #000,
+      1px -1px 0 #000,
+      -1px 1px 0 #000;
+  }
+  
+  .crt-effect {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .crt-effect::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+      transparent 0%,
+      rgba(0, 0, 0, 0.05) 0.5%, 
+      transparent 1%
+    );
+    pointer-events: none;
+    animation: scanline 10s linear infinite;
+  }
+  
+  @keyframes scanline {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(100%);
+    }
   }
 }

@@ -17,6 +17,13 @@ const MainLayout = ({ children }: MainLayoutProps) => {
       </main>
       <Footer />
       <Toaster />
+      
+      {/* Retro Design Decorations */}
+      <div className="fixed top-0 left-0 right-0 h-2 bg-retro-purple z-50"></div>
+      <div className="fixed bottom-0 left-0 right-0 h-2 bg-retro-purple z-50"></div>
+      
+      {/* Optional CRT effect overlay - comment out if too intense */}
+      <div className="fixed inset-0 pointer-events-none crt-effect z-[100]"></div>
     </div>
   );
 };

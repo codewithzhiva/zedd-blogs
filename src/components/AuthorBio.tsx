@@ -9,14 +9,16 @@ interface AuthorBioProps {
 
 const AuthorBio = ({ name, bio, imageUrl }: AuthorBioProps) => {
   return (
-    <div className="flex flex-col md:flex-row md:items-center bg-gray-50 rounded-lg p-6 my-8">
-      <img
-        src={imageUrl}
-        alt={`Photo of ${name}`}
-        className="w-20 h-20 rounded-full object-cover mr-6 mb-4 md:mb-0"
-      />
+    <div className="retro-card flex flex-col md:flex-row md:items-center my-8 bg-retro-cream">
+      <div className="border-2 border-black p-1 bg-white shadow-retro mr-6 mb-4 md:mb-0 w-20 h-20 flex-shrink-0">
+        <img
+          src={imageUrl}
+          alt={`Photo of ${name}`}
+          className="w-full h-full object-cover"
+        />
+      </div>
       <div>
-        <p className="font-semibold text-lg mb-1">Written by {name}</p>
+        <p className="font-retro font-bold text-lg mb-1 text-retro-darkPurple">Written by {name}</p>
         <p className="text-gray-600">{bio}</p>
       </div>
     </div>
