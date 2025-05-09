@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
+import authors from '../data/authors';
 
 export interface BlogPostProps {
   id: string;
@@ -14,6 +14,8 @@ export interface BlogPostProps {
 }
 
 const BlogCard = ({ post }: { post: BlogPostProps }) => {
+  const authorDetails = authors[post.author];
+
   return (
     <article className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow">
       <Link to={`/blog/${post.slug}`} className="block">
@@ -34,8 +36,25 @@ const BlogCard = ({ post }: { post: BlogPostProps }) => {
         </Link>
         <p className="text-gray-600 mb-4 line-clamp-2">{post.excerpt}</p>
         <div className="flex items-center justify-between">
-          <span className="text-sm text-gray-500">{post.author}</span>
-          <Link to={`/blog/${post.slug}`} className="text-primary font-medium hover:text-primary/80 transition-colors">
+          <div className="flex items-center">
+            {authorDetails && (
+              <img 
+                src={authorDetails.imageUrl} 
+                alt={authorDetails.name}
+                className="w-8 h-8 rounded-full object-cover mr-2"
+              />
+            )}
+            <div>
+              <span className="text-sm font-medium">{post.author}</span>
+              {authorDetails?.specialization && (
+                <p className="text-xs text-primary">{authorDetails.specialization}</p>
+              )}
+            </div>
+          </div>
+          <Link 
+            to={`/blog/${post.slug}`} 
+            className="text-primary font-medium hover:text-primary/80 transition-colors"
+          >
             Read More
           </Link>
         </div>
