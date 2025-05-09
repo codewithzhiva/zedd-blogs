@@ -9,7 +9,7 @@ interface AuthorBioProps {
 
 const AuthorBio = ({ name, bio, imageUrl }: AuthorBioProps) => {
   return (
-    <div className="retro-card flex flex-col md:flex-row md:items-center my-8 bg-retro-cream">
+    <div className="gradient-card flex flex-col md:flex-row md:items-center my-8">
       <div className="border-2 border-black p-1 bg-white shadow-retro mr-6 mb-4 md:mb-0 w-20 h-20 flex-shrink-0">
         <img
           src={imageUrl}
@@ -18,7 +18,7 @@ const AuthorBio = ({ name, bio, imageUrl }: AuthorBioProps) => {
         />
       </div>
       <div>
-        <p className="font-retro font-bold text-lg mb-1 text-retro-darkPurple">Written by {name}</p>
+        <p className="font-retro font-bold text-lg mb-1 rainbow-text">Written by {name}</p>
         <p className="text-gray-600">{bio}</p>
       </div>
     </div>

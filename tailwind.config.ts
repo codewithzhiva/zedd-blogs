@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +60,13 @@ export default {
           peach: '#FDE1D3',
           blue: '#D3E4FD',
           gray: '#8E9196',
+          neon: '#39FF14',
+          hotPink: '#FF69B4',
+          teal: '#20C2C8',
+          mint: '#98FB98',
+          mustard: '#FFDB58',
+          magenta: '#FF00FF',
+          cyan: '#00FFFF',
         },
       },
       borderRadius: {
@@ -109,16 +115,39 @@ export default {
           "80%": { transform: "translate(0, -1px)" },
           "90%": { transform: "translate(0, 0)" },
         },
+        "color-cycle": {
+          "0%, 100%": { color: "#9b87f5" },
+          "25%": { color: "#FF69B4" },
+          "50%": { color: "#39FF14" },
+          "75%": { color: "#00FFFF" },
+        },
+        "background-shine": {
+          "0%": {
+            backgroundPosition: "200% 0",
+          },
+          "100%": {
+            backgroundPosition: "-200% 0",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "pixel-shift": "pixel-shift 5s infinite",
+        "color-cycle": "color-cycle 8s infinite",
+        "background-shine": "background-shine 8s linear infinite",
       },
       boxShadow: {
         'retro': '3px 3px 0 rgba(0, 0, 0, 0.8)',
         'retro-lg': '5px 5px 0 rgba(0, 0, 0, 0.8)',
         'retro-inset': 'inset 3px 3px 0 rgba(0, 0, 0, 0.2)',
+        'neon': '0 0 5px theme("colors.retro.neon"), 0 0 20px theme("colors.retro.neon")',
+        'neon-text': '0 0 2px theme("colors.retro.neon"), 0 0 10px theme("colors.retro.neon")',
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'rainbow-gradient': 'linear-gradient(90deg, #FF00FF, #FF69B4, #39FF14, #00FFFF, #9b87f5)',
       }
     },
   },
